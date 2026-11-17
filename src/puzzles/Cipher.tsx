@@ -1,0 +1,11 @@
+import type { CipherPuzzle } from '../core/quest'
+
+// Заглушка: справжня головоломка з'явиться у своїй задачі.
+export default function Cipher({ data }: { data: CipherPuzzle }) {
+  return (
+    <div>
+      <h2>{data.type}</h2>
+      <pre style={{ whiteSpace: 'pre-wrap' }}>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  )
+}
