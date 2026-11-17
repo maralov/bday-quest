@@ -1,4 +1,5 @@
 import { useEffect, useState, type ComponentType, type ReactNode } from 'react'
+import { AdminPanel } from './admin/AdminPanel'
 import { decodeB64Utf8 } from './core/hash'
 import { applyToken, collectedLetters, FINAL_STAGE, useProgress, type ScanResult } from './core/progress'
 import { quest, type Puzzle } from './core/quest'
@@ -55,7 +56,7 @@ function Quest() {
   )
 }
 
-// Тимчасові заглушки екранів до Task 2, 7, 8; у Task 9 замінити імпортами.
+// Тимчасові заглушки екранів до Task 2, 7; у Task 9 замінити імпортами.
 function Shell(p: { letters: string[]; total: number; children: ReactNode }) {
   return <main><p>Сигнали: {p.letters.join(' ')} ({p.letters.length}/{p.total})</p>{p.children}</main>
 }
@@ -76,7 +77,4 @@ function Safe(p: { letters: string[]; passwordHash: string; onOpen(): void }) {
 }
 function Finale(p: { title: string; giftPlace: string }) {
   return <section><h1>{p.title}</h1><p>Твій подарунок чекає тут:</p><p>{p.giftPlace}</p></section>
-}
-function AdminPanel() {
-  return <main>Батьківська панель (Task 8)</main>
 }

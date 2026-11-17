@@ -1,0 +1,86 @@
+.admin {
+  background: #fff;
+  color: #111;
+  font: 18px/1.4 system-ui, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.admin button,
+.admin input {
+  font: inherit;
+  min-height: 48px;
+  margin: 4px 4px 4px 0;
+  padding: 0 16px;
+}
+.admin button[aria-pressed='true'] {
+  background: #111;
+  color: #fff;
+}
+.admin-login label {
+  display: block;
+}
+.admin-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.admin-warn {
+  background: #c00;
+  color: #fff;
+  padding: 12px;
+  font-weight: bold;
+}
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.admin-card {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+  break-inside: avoid;
+}
+.admin-card figcaption {
+  font-weight: bold;
+  letter-spacing: 0.2em;
+}
+.admin-card img {
+  width: 100%;
+  max-width: 240px;
+}
+.admin-card hr {
+  border: 0;
+  border-top: 2px dashed #555;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+  .admin {
+    padding: 0;
+    max-width: none;
+    min-height: 0;
+  }
+  /* Друкуються лише картки: 2 колонки × 3 ряди, усі 5 на одному аркуші. */
+  .admin > :not(section:last-child),
+  .admin section:last-child > :not(.admin-cards) {
+    display: none;
+  }
+  .admin-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6mm;
+  }
+  .admin-card {
+    padding: 4mm;
+  }
+  .admin-card img {
+    width: 50mm;
+    height: 50mm;
+  }
+}
