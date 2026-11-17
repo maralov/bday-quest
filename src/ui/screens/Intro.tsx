@@ -2,7 +2,7 @@ export function Intro({ title, text, onStart }: { title: string; text: string; o
   return (
     <section className="screen">
       <h1>{title}</h1>
-      <p>{text}</p>
+      {text.split('\n').map((t, i) => <p key={i}>{t}</p>)}
       <button onClick={onStart}>Відповісти</button>
     </section>
   )

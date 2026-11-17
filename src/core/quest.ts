@@ -1,10 +1,10 @@
 import raw from '../quest.json'
 
-export type MorsePuzzle = { type: 'morse'; word: string; caption: string }
+export type AnagramPuzzle = { type: 'anagram'; word: string; caption: string }
 export type MirrorPuzzle = { type: 'mirror'; text: string }
 export type RadioPuzzle = { type: 'radio'; min: number; max: number; target: number; text: string }
 export type CipherPuzzle = { type: 'cipher'; shift: number; plain: string; keyHint: string }
-export type Puzzle = MorsePuzzle | MirrorPuzzle | RadioPuzzle | CipherPuzzle
+export type Puzzle = AnagramPuzzle | MirrorPuzzle | RadioPuzzle | CipherPuzzle
 export type Level = { token: string; letter: string; hideAt: string; hints: [string, string]; puzzle: Puzzle }
 export type Quest = {
   title: string; intro: string; hintDelaysSec: [number, number]; adminPasswordHash: string
@@ -44,9 +44,11 @@ export function validateQuest(raw: unknown): Quest {
     if (!Array.isArray(l.hints) || l.hints.length !== 2 || !l.hints.every(isStr)) fail(`${n}: потрібно 2 непорожні підказки`)
     const p = l.puzzle
     switch (p?.type) {
-      case 'morse':
-        if (!isUaWord(p.word, 4)) fail(`${n}: слово для морзянки має мати 1–4 великі українські літери`)
-        if (!isStr(p.caption)) fail(`${n}: морзянці потрібен caption`)
+      case 'anagram':
+        // мінімум 2 різні літери, інакше нема що перемішувати
+        if (!isUaWord(p.word, 12) || new Set(p.word).size < 2)
+          fail(`${n}: слово для анаграми має мати до 12 великих українських літер, з них хоча б 2 різні`)
+        if (!isStr(p.caption)) fail(`${n}: анаграмі потрібен caption`)
         break
       case 'mirror':
         if (!isStr(p.text)) fail(`${n}: дзеркалу потрібен text`)

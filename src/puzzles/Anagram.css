@@ -1,0 +1,15 @@
+.anagram { display: flex; flex-direction: column; gap: 16px; }
+.anagram p { margin: 0; }
+.anagram-slots { display: grid; gap: 4px; }
+.anagram .anagram-slot {
+  min-height: 52px; padding: 0; font: 700 22px var(--font-title, sans-serif);
+  color: var(--neon-warm, #ffae3b); background: rgb(7 6 11 / 0.6);
+  border: 2px solid rgb(62 230 255 / 0.5); box-shadow: none; border-radius: 6px;
+}
+.anagram .anagram-slot:disabled { opacity: 1; }
+.anagram-slots.solved .anagram-slot { border-color: var(--neon-warm, #ffae3b); text-shadow: 0 0 10px var(--neon-warm, #ffae3b); }
+.anagram-tiles { display: flex; flex-wrap: wrap; gap: 8px; }
+.anagram .anagram-tile { min-width: 52px; min-height: 52px; padding: 0; font: 700 24px var(--font-title, sans-serif); }
+.anagram .anagram-tile:disabled { visibility: hidden; }
+.anagram-ok { color: var(--neon-warm, #ffae3b); font-size: 20px; }
+.anagram-wrong { color: var(--neon-warm, #ffae3b); }

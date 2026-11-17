@@ -17,12 +17,14 @@ describe('validateQuest', () => {
     q.levels[1].token = q.levels[0].token
     expect(() => validateQuest(q)).toThrow(/токен/i)
   })
-  it('слово для морзянки', () => {
+  it('слово для анаграми', () => {
     const q = valid()
-    q.levels[0].puzzle.word = 'ХОЛОД'
-    expect(() => validateQuest(q)).toThrow(/морз/i)
+    q.levels[0].puzzle.word = 'МОРОЗИЛКАМОРОЗ'
+    expect(() => validateQuest(q)).toThrow(/анаграм/i)
     q.levels[0].puzzle.word = 'LID'
-    expect(() => validateQuest(q)).toThrow(/морз/i)
+    expect(() => validateQuest(q)).toThrow(/анаграм/i)
+    q.levels[0].puzzle.word = 'ААА'
+    expect(() => validateQuest(q)).toThrow(/анаграм/i)
   })
   it('радіо', () => {
     const q = valid()

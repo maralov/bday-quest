@@ -33,7 +33,7 @@ export function AdminPanel() {
 }
 
 const answer = (p: Puzzle) =>
-  p.type === 'morse' ? p.word : p.type === 'mirror' ? p.text : p.type === 'radio' ? String(p.target) : p.plain
+  p.type === 'anagram' ? p.word : p.type === 'mirror' ? p.text : p.type === 'radio' ? String(p.target) : p.plain
 
 function Panel() {
   const { stage, setStage, reset } = useProgress()
