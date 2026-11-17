@@ -1,0 +1,18 @@
+/* Спільні стилі для Radio і Cipher: великий повзунок і текст головоломки. */
+.dial-puzzle { display: flex; flex-direction: column; gap: 16px; font-size: 20px; color: var(--fg, #eee); }
+.dial-value { font-size: 32px; text-align: center; color: var(--neon-warm, #ff4d6d); font-variant-numeric: tabular-nums; }
+.dial-text { font-size: 22px; line-height: 1.4; letter-spacing: 0.05em; overflow-wrap: anywhere; min-height: 3em; }
+.dial-cipher { color: var(--neon-cold, #4dd8ff); }
+
+.dial { -webkit-appearance: none; appearance: none; width: 100%; height: 48px; margin: 0; background: transparent; touch-action: pan-y; }
+.dial::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: var(--neon-cold, #4dd8ff); }
+.dial::-moz-range-track { height: 8px; border-radius: 4px; background: var(--neon-cold, #4dd8ff); }
+.dial::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 44px; height: 44px; margin-top: -18px; border-radius: 50%;
+  background: var(--bg, #0b0b12); border: 4px solid var(--neon-warm, #ff4d6d);
+}
+.dial::-moz-range-thumb { width: 36px; height: 36px; border-radius: 50%; background: var(--bg, #0b0b12); border: 4px solid var(--neon-warm, #ff4d6d); }
+.dial:focus-visible { outline: 2px solid var(--neon-warm, #ff4d6d); outline-offset: 4px; }
+
+.radio-screen { position: relative; }
+.radio-screen canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; image-rendering: pixelated; }
