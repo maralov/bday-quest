@@ -80,7 +80,25 @@
     padding: 4mm;
   }
   .admin-card img {
-    width: 50mm;
-    height: 50mm;
+    width: 44mm;
+    height: 44mm;
   }
+}
+
+/* theme.css глобальний: повертаємо адмінці звичайні світлі кнопки й заголовки. */
+.admin h1,
+.admin h2 {
+  color: #111;
+  text-shadow: none;
+}
+.admin button {
+  color: #111;
+  background: #eee;
+  border: 1px solid #888;
+  border-radius: 4px;
+  box-shadow: none;
+}
+.admin-code {
+  font: 700 16px ui-monospace, monospace;
+  letter-spacing: 0.1em;
 }

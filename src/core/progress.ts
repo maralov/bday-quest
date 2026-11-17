@@ -51,3 +51,14 @@ export function useProgress() {
   }
   return { ...p, setStage, reset: () => setStage(0) }
 }
+
+// Текст із QR (повна адреса з ?k=) або код, введений руками ("UP0U J3AH").
+export function tokenFromText(text: string): string {
+  try {
+    const k = new URL(text.trim()).searchParams.get('k')
+    if (k) return k
+  } catch {
+    // не адреса: це код з картки
+  }
+  return text.replace(/\s+/g, '').toLowerCase()
+}

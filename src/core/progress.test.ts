@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { applyToken, collectedLetters, loadProgress, saveProgress, STORAGE_KEY } from './progress'
+import { applyToken, collectedLetters, loadProgress, saveProgress, STORAGE_KEY, tokenFromText } from './progress'
 import { quest } from './quest'
 
 const t = (n: number) => quest.levels[n - 1].token
@@ -54,5 +54,13 @@ describe('loadProgress / saveProgress', () => {
   it('save + load повертає те саме', () => {
     saveProgress({ stage: 3, stageStartedAt: 12345 })
     expect(loadProgress()).toEqual({ stage: 3, stageStartedAt: 12345 })
+  })
+})
+
+describe('tokenFromText', () => {
+  it('дістає токен з адреси QR або з введеного коду', () => {
+    expect(tokenFromText('https://maralov.github.io/bday-quest/?k=up0uj3ah')).toBe('up0uj3ah')
+    expect(tokenFromText(' UP0U J3AH ')).toBe('up0uj3ah')
+    expect(tokenFromText('https://example.com/')).toBe('https://example.com/')
   })
 })

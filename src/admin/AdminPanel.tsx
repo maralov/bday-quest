@@ -39,8 +39,13 @@ function Panel() {
   const { stage, setStage, reset } = useProgress()
   const base = location.origin + location.pathname
   const cards = [
-    { title: 'СТАРТ', url: base, note: 'Старт: дати в руки' },
-    ...quest.levels.map((l, i) => ({ title: 'Сигнал', url: `${base}?k=${l.token}`, note: `QR ${i + 1}: ${l.hideAt}` })),
+    { title: 'СТАРТ', url: base, code: '', note: 'Старт: дати в руки' },
+    ...quest.levels.map((l, i) => ({
+      title: 'Сигнал',
+      url: `${base}?k=${l.token}`,
+      code: l.token.toUpperCase().replace(/(.{4})/, '$1 '), // запасний код для ручного введення
+      note: `QR ${i + 1}: ${l.hideAt}`,
+    })),
   ]
   const [qr, setQr] = useState<string[]>([])
 
@@ -86,6 +91,7 @@ function Panel() {
             <figure key={i} className="admin-card">
               <figcaption>{c.title}</figcaption>
               {qr[i] && <img src={qr[i]} alt={c.title} />}
+              {c.code && <div className="admin-code">Код: {c.code}</div>}
               <hr />
               <small>{c.note}</small>
             </figure>

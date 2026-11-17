@@ -163,3 +163,19 @@ button:focus-visible { outline: 3px solid var(--neon-warm); outline-offset: 3px;
 /* Підказки */
 .hints { margin-top: 24px; }
 .hints ol { margin: 16px 0 0; padding-left: 24px; color: var(--neon-cold); }
+
+/* Сканер сигналів */
+.scan-open { margin-top: 24px; width: 100%; border-color: var(--neon-warm); box-shadow: 0 0 12px rgb(255 174 59 / 0.35); }
+.scanner { display: flex; flex-direction: column; gap: 12px; }
+.scanner-view { position: relative; aspect-ratio: 1; overflow: hidden; border: 2px solid var(--neon-cold); border-radius: 8px; background: #000; }
+.scanner-view video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.scanner-frame { position: absolute; inset: 18%; border: 3px dashed var(--neon-warm); border-radius: 8px; }
+.scanner-wrong { color: var(--neon-warm); margin: 0; }
+.scanner-code { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.scanner-code label { width: 100%; }
+.scanner-code input {
+  flex: 1; min-width: 0; min-height: 48px; padding: 0 12px; font: 700 20px var(--font-title);
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--fg); background: var(--bg);
+  border: 2px solid var(--neon-cold); border-radius: 6px;
+}
+.banner { color: var(--neon-cold); }

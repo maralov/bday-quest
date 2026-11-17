@@ -26,7 +26,7 @@
   animation: finale-in 1.2s ease-out;
 }
 .finale p { margin: 0; }
-.finale-title { margin: 0 0 8px; font: 700 36px var(--font-title, sans-serif); }
+.finale-title { margin: 0 0 8px; font: 700 36px var(--font-title, sans-serif); color: #2a1600; text-shadow: 0 0 16px rgb(255 174 59 / 0.8); }
 .finale-place { font-size: 28px; font-weight: 700; }
 @keyframes finale-in { from { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .finale { animation: none; } }

@@ -26,7 +26,7 @@ export function Safe({ letters, passwordHash, onOpen }: { letters: string[]; pas
         id="safe-input"
         className="safe-input"
         value={value}
-        onChange={e => setValue(e.target.value)}
+        onChange={e => setValue(e.target.value.replace(/\s/g, ''))} // пробіли не з’їдають maxLength
         maxLength={4}
         autoCapitalize="characters"
         autoComplete="off"
